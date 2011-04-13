@@ -1,0 +1,843 @@
+/* 
+  style.css contains a reset, font normalization and some base styles.
+  
+  credit is left where credit is due.
+  additionally, much inspiration was taken from these projects:
+    yui.yahooapis.com/2.8.1/build/base/base.css
+    camendesign.com/design/
+    praegnanz.de/weblog/htmlcssjs-kickstart
+*/
+
+/* 
+  html5doctor.com Reset Stylesheet (Eric Meyer's Reset Reloaded + HTML5 baseline)
+  v1.4 2009-07-27 | Authors: Eric Meyer & Richard Clark
+  html5doctor.com/html-5-reset-stylesheet/
+*/
+
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+  margin:0;
+  padding:0;
+  border:0;
+  outline:0;
+  font-size:100%;
+  vertical-align:baseline;
+  background:transparent;
+}                  
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section { 
+    display:block;
+}
+
+nav ul { list-style:none; }
+
+blockquote, q { quotes:none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after { content:''; content:none; }
+
+a { margin:0; padding:0; font-size:100%; vertical-align:baseline; background:transparent; }
+
+ins { background-color:#ff9; color:#000; text-decoration:none; }
+
+mark { background-color:#ff9; color:#000; font-style:italic; font-weight:bold; }
+
+del { text-decoration: line-through; }
+
+abbr[title], dfn[title] { border-bottom:1px dotted; cursor:help; }
+
+/* tables still need cellspacing="0" in the markup */
+table { border-collapse:collapse; border-spacing:0; }
+
+hr { display:block; height:1px; border:0; border-top:1px solid #ccc; margin:1em 0; padding:0; }
+
+input, select { vertical-align:middle; }
+/* END RESET CSS */
+
+
+/* fonts.css from the YUI Library: developer.yahoo.com/yui/
+   Refer to developer.yahoo.com/yui/3/cssfonts/ for font sizing percentages
+
+  There are three custom edits:
+   * remove arial, helvetica from explicit font stack
+   * we normalize monospace styles ourselves
+   * table font-size is reset in the HTML5 reset above so there is no need to repeat
+*/
+body { font:13px/1.231 sans-serif; *font-size:small; } /* hack retained to preserve specificity */
+
+select, input, textarea, button { font:99% sans-serif; }
+
+/* normalize monospace sizing 
+ * en.wikipedia.org/wiki/MediaWiki_talk:Common.css/Archive_11#Teletype_style_fix_for_Chrome
+ */
+pre, code, kbd, samp { font-family: monospace, sans-serif; }
+ 
+
+/* 
+ * minimal base styles 
+ */
+
+
+body, select, input, textarea { 
+  /* #444 looks better than black: twitter.com/H_FJ/statuses/11800719859 */ 
+  color: #444; 
+  /* set your base font here, to apply evenly 
+  /* font-family: Georgia, serif;  */   
+}
+
+/* always force a scrollbar in non-IE */ 
+html { overflow-y: scroll; }
+
+ 
+/* Accessible focus treatment: people.opera.com/patrickl/experiments/keyboard/test */
+a:hover, a:active { outline: none; }
+
+a, a:active, a:visited { color: #607890; }
+a:hover { color: #036; }
+
+
+ul, ol { margin-left: 1.8em; }
+ol { list-style-type: decimal; }
+
+small { font-size: 85%; }
+strong, th { font-weight: bold; }
+
+td, td img { vertical-align: top; } 
+
+sub { vertical-align: sub; font-size: smaller; }
+sup { vertical-align: super; font-size: smaller; }
+
+pre { 
+  padding: 15px; 
+  
+  /* www.pathf.com/blogs/2008/05/formatting-quoted-code-in-blog-posts-css21-white-space-pre-wrap/ */
+  white-space: pre; /* CSS2 */
+  white-space: pre-wrap; /* CSS 2.1 */
+  white-space: pre-line; /* CSS 3 (and 2.1 as well, actually) */
+  word-wrap: break-word; /* IE */
+}
+ 
+textarea { overflow: auto; } /* thnx ivannikolic! www.sitepoint.com/blogs/2010/08/20/ie-remove-textarea-scrollbars/ */
+
+.ie6 legend, .ie7 legend { margin-left: -7px; } /* thnx ivannikolic! */
+
+/* align checkboxes, radios, text inputs with their label
+   by: Thierry Koblentz tjkdesign.com/ez-css/css/base.css  */
+input[type="radio"] { vertical-align: text-bottom; }
+input[type="checkbox"] { vertical-align: bottom; }
+.ie7 input[type="checkbox"] { vertical-align: baseline; }
+.ie6 input { vertical-align: text-bottom; }
+
+/* hand cursor on clickable input elements */
+label, input[type=button], input[type=submit], button { cursor: pointer; }
+ 
+/* webkit browsers add a 2px margin outside the chrome of form elements */  
+button, input, select, textarea { margin: 0; }
+
+/* colors for form validity */
+input:valid, textarea:valid   {  }
+input:invalid, textarea:invalid { 
+      border-radius: 1px;
+    -moz-box-shadow: 0px 0px 5px red; 
+ -webkit-box-shadow: 0px 0px 5px red; 
+         box-shadow: 0px 0px 5px red;
+}
+.no-boxshadow input:invalid, 
+.no-boxshadow textarea:invalid { background-color: #f0dddd; }
+
+
+/* These selection declarations have to be separate.
+   No text-shadow: twitter.com/miketaylr/status/12228805301 
+   Also: hot pink. */
+::-moz-selection{ background: #FF5E99; color:#fff; text-shadow: none; }
+::selection { background:#FF5E99; color:#fff; text-shadow: none; } 
+
+/*  j.mp/webkit-tap-highlight-color */
+a:link { -webkit-tap-highlight-color: #FF5E99; } 
+
+/* make buttons play nice in IE:    
+   www.viget.com/inspire/styling-the-button-element-in-internet-explorer/ */
+button {  width: auto; overflow: visible; }
+ 
+/* bicubic resizing for non-native sized IMG: 
+   code.flickr.com/blog/2008/11/12/on-ui-quality-the-little-things-client-side-image-resizing/ */
+.ie7 img { -ms-interpolation-mode: bicubic; }
+
+
+
+/* 
+ * Non-semantic helper classes 
+ */
+
+/* for image replacement */
+.ir { display: block; text-indent: -999em; overflow: hidden; background-repeat: no-repeat; text-align: left; direction: ltr; }
+
+/* Hide for both screenreaders and browsers
+   css-discuss.incutio.com/wiki/Screenreader_Visibility */
+.hidden { display: none; visibility: hidden; } 
+
+/* Hide only visually, but have it available for screenreaders 
+   www.webaim.org/techniques/css/invisiblecontent/ 
+   Solution from: j.mp/visuallyhidden - Thanks Jonathan Neal! */
+.visuallyhidden { position: absolute !important;    
+  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px); }
+
+/* Hide visually and from screenreaders, but maintain layout */
+.invisible { visibility: hidden; }
+
+/* >> The Magnificent CLEARFIX << j.mp/phayesclearfix */
+.clearfix:after  { content: "\0020"; display: block; height: 0; clear: both; visibility: hidden; }
+/* Fix clearfix: blueprintcss.lighthouseapp.com/projects/15318/tickets/5-extra-margin-padding-bottom-of-page */
+.clearfix { zoom: 1; }
+
+
+
+/************************************************************************
+*************************************************************************
+************************************************************************/
+/* !PRIMARY STYLES */
+/* Author: Philip Downer */
+/************************************************************************
+*************************************************************************
+************************************************************************/
+
+/***********************************************************************/
+/* !FONTS & TEXT COLORS */
+/***********************************************************************/
+h1,h2,h3,h4,h5,h6 {}
+h1 {
+	font-size:231%; /* 30px */
+}
+h2 {
+	font-size:182%; /* 24px */
+}
+h3 {
+	font-size:138.5%; /* 18px */
+}
+h4 {
+	font-size:123.1%; /* 16px */
+}
+h5,h6 {
+	font-size:108%; /* 14px */
+}
+
+/*PARAGRAPHS */
+p {
+	font-size:93%; /*12 px*/
+	line-height:108%; /* 14px */
+}
+	p:last-child {
+		margin-bottom: 0;
+	}
+	
+p, ul, ol {
+	margin-bottom: 18px;
+}
+
+/* LINKS */
+a, a:active, a:visited {}
+a:hover {}
+
+/* BLOCKQUOTES */
+blockquote {
+	font-style: italic;
+	padding:0 25px;
+}
+
+/***********************************************************************/
+/* !QUICK IMAGE ALIGNMENT */
+/***********************************************************************/
+.aligncenter {
+	margin:0 auto 20px auto;
+	clear:both;
+}
+
+.alignleft {
+	float:left;
+	margin:0 15px 10px 0;
+}
+
+.alignright {
+	float:right;
+	margin: 0 0 10px 15px;
+}
+
+.alignnone {
+	clear:both;
+}
+
+article object {
+	margin:0 auto 20px auto;
+	clear:both;
+	display: block;
+}
+
+/***********************************************************************/
+/* !QUICK CLEARING */
+/***********************************************************************/
+.clearboth { clear:both; }
+.clearnone { clear:none; }
+.clearleft { clear:left; }
+.clearright { clear:right; }
+
+/***********************************************************************/
+/* !CLICKABLES */
+/***********************************************************************/
+.clickable {
+	position: relative;
+}
+	.clickable:active {
+		top:1px;
+		left:1px;
+	}
+	
+/***********************************************************************/
+/* !BREADCRUMB MENUS */
+/***********************************************************************/
+#breadcrumb {
+	display:block;
+	clear:both;
+	font-size:77%; /* 10px */
+	text-transform: uppercase;
+}
+	#breadcrumb li {
+		display:inline;
+	}
+	#breadcrumb li.current {
+		font-weight:bold;
+	}
+	#breadcrumb a {
+		text-decoration: none;
+	}
+		#breadcrumb a:hover {
+			text-decoration: underline;
+		}
+		
+/***********************************************************************/
+/* !DESIGN ELEMENTS */
+/***********************************************************************/
+
+/* Rounded Corners */
+.rounded {
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	-khtml-border-radius:5px;
+	border-radius:5px;
+}
+
+/* DROP SHADOWS */
+.shadow {
+	  -moz-box-shadow: 2px 2px 5px #979075;
+	  -webkit-box-shadow: 2px 2px 5px #979075;
+	  box-shadow: 2px 2px 5px #979075;
+}
+
+/* More Links */
+p.more {
+	text-align: right;
+	margin-bottom: 0;
+}
+p.more.inline {
+	display:inline;
+	margin-left:5px;
+}
+.more a,
+a.more {}
+
+/***********************************************************************/
+/* !AWESOME ZURB BUTTONS */
+/* Source: http://www.zurb.com/article/266/super-awesome-buttons-with-css3-and-rgba */
+/***********************************************************************/
+.button,
+.button:visited {
+	background: #222 url(../images/buttons/button-overlay.png) repeat-x; 
+	display: inline-block; 
+	padding: 5px 10px 6px; 
+	color: #fff; 
+	text-decoration: none;
+	-moz-border-radius: 5px; 
+	-webkit-border-radius: 5px;
+	-moz-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+	-webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+	text-shadow: 0 -1px 1px rgba(0,0,0,0.25);
+	border-bottom: 1px solid rgba(0,0,0,0.25);
+	position: relative;
+	cursor: pointer;
+}
+
+.button:hover {
+	background-color: #111;
+	color: #fff;
+}
+.button:active {
+	top: 1px;
+}
+.small.button,
+.small.button:visited {
+	font-size: 11px; /* padding: ; */
+}
+.button,
+.button:visited,
+.medium.button,
+.medium.button:visited {
+	font-size: 13px;
+	font-weight: bold;
+	line-height: 1;
+	text-shadow: 0 -1px 1px rgba(0,0,0,0.25);
+}
+.large.button,
+.large.button:visited {
+	font-size: 14px;
+	padding: 8px 14px 9px;
+}
+.green.button,
+.green.button:visited {
+	background-color: #91bd09;
+}
+.green.button:hover {
+	background-color: #749a02;
+}
+.blue.button,
+.blue.button:visited {
+	background-color: #2daebf;
+}
+.blue.button:hover {
+	background-color: #007d9a;
+}
+.red.button,
+.red.button:visited {
+	background-color: #e33100;
+}
+.red.button:hover {
+	background-color: #872300;
+}
+.magenta.button,
+.magenta.button:visited {
+	background-color: #a9014b;
+}
+.magenta.button:hover {
+	background-color: #630030;
+}
+.orange.button,
+.orange.button:visited {
+	background-color: #ff5c00;
+}
+.orange.button:hover {
+	background-color: #d45500;
+}
+.yellow.button,
+.yellow.button:visited {
+	background-color: #ffb515;
+}
+.yellow.button:hover {
+	background-color: #fc9200;
+}
+
+/***********************************************************************/
+/* !FORMS */
+/***********************************************************************/
+input[type=submit],
+input[type=button] {
+	border: none;
+	margin:10px 0;
+	clear:both;
+	display: block;
+}
+input[type=text],
+input[type=email],
+input[type=password],
+input[type=url],
+input[type=number],
+textarea,
+select {
+	font-size:93%; /*12 px*/
+	padding:5px 8px;
+	clear:left;
+	display: block;
+	width:100%;
+}
+input[type=number] {
+	cursor: default;
+}
+	input[type=text]:focus,
+	input[type=email]:focus,
+	input[type=password]:focus,
+	input[type=url]:focus,
+	input[type=number]:focus,
+	textarea:focus {}
+	
+/* TEXTAREAS */
+textarea.short-height {
+	height:75px;
+}
+textarea.medium-height {
+	height:125px;
+}
+textarea.tall-height {
+	height:250px;
+}
+
+/* SELECT FIELDS */
+select {
+	width:auto;
+}
+
+/*FIELDSETS & LEGENDS */
+fieldset {
+	margin:10px 0;
+	border:1px solid #444;
+	padding:10px;
+}
+	fieldset:first-child {
+		margin-top:0;
+	}
+
+legend {
+	font-weight:bold;
+	text-transform: uppercase;
+	padding:0 8px;
+}
+
+/* PARAGRAPHS WITHIN FORMS */
+fieldset p {
+	margin-bottom:10px;
+}
+
+/*LABELS*/
+label {
+	clear:both;
+	float:left;
+	margin-top:15px;
+}
+	label:first-child {
+		margin-top:0;
+	}
+
+/* INLINE FIELDS */
+.inline {
+	float:left;
+	clear:none;
+	margin:10px 8px 0 0;
+	display:block;
+}
+	.inline.first {
+		clear:left !important;
+	}
+	.inline.last {
+		margin-right:none;
+	}
+.inline input {
+	float:left;
+	width:100%;
+}
+	.inline small {
+		display:block;
+		clear:left;
+		padding-left:2px;
+		filter:alpha(opacity=80);
+		-moz-opacity:0.8;
+		-khtml-opacity: 0.8;
+		opacity: 0.8;
+	}
+	
+/* STACKED FIELDS */
+input.stack {
+	margin-bottom:5px;
+}
+
+/* NAME FIELDS */
+.inline.firstname {
+	width:48%;
+}
+.inline.lastname {
+	width:48%;
+}
+
+/* ADDRESS FIELDS */
+.inline.city {
+	width:55%;
+}
+
+.inline.state {
+	width:10%;
+	text-align:center;
+}
+
+.inline.zip {
+	width:25%;
+}
+
+/*INLINE HEIGHT ADJUSTMENT*/
+.heightadjust {
+	position: relative;
+	top:14px;
+}
+
+/*FORM MESSAGES */
+.message {
+	clear:both;
+	margin:10px 0;
+	-moz-border-radius:4px;
+	-webkit-border-radius:4px;
+	-khtml-border-radius:4px;
+	border-radius:4px;
+  -moz-box-shadow: 5px 5px 5px #ccc;
+  -webkit-box-shadow: 5px 5px 5px #ccc;
+  box-shadow: 5px 5px 5px #ccc;
+}
+
+.success {
+	border: 2px solid #4e7c13;
+	color:#4e7c13;
+	background-color: #d3e0a0;
+	padding:10px;
+}
+
+.error {
+	border: 2px solid #ae1010;
+	color: #ae1010;
+	background-color: #f3cccc;
+	padding: 10px;
+}
+	input.error,
+	textarea.error {
+		border-color:#ae1010;
+	}
+
+.warning {
+	border: 2px solid #e7be3f;
+	color: #702817;
+	background-color: #fff9b2;
+	padding: 10px;
+}
+
+/***********************************************************************/
+/* !TABLES */
+/***********************************************************************/
+/* TABLES */
+th,
+td {
+	padding: 5px;
+	vertical-align: middle;
+}
+thead {
+	background-color: #333;
+	color:#999;
+	margin-bottom: 8px;
+}
+thead a, thead a:hover {
+	color:#fff;
+	font-weight: bold;
+}
+thead th {
+	vertical-align: middle;
+	text-align:left;
+}
+
+/** DELINEATION BETWEEN ROWS **/
+tbody tr {
+	border-bottom: 1px solid #c2bfb3;
+}
+	tbody tr:nth-child(even) td {
+		background-color: #efefef;
+	}
+
+/** TEXT TREATMENTS **/
+td .small,
+td.small {
+	font-size:85%;
+}
+
+td ul,td ol {
+	margin:0;
+}
+
+td.actions,
+th.actions,
+td.right {
+	text-align:right;
+}
+
+td.center {
+	text-align: center;
+}
+
+/***********************************************************************/
+/* !PAGINATION */
+/***********************************************************************/
+ul.pagination {
+	margin: 0;
+	font-size:85%; /* 11px */
+}
+
+ul.pagination.bottom {
+	float:right;
+	margin-top:-10px;
+	margin-bottom: 15px;
+}
+
+ul.pagination li {
+	display: inline;
+	margin:0 3px;
+}
+	ul.pagination li.prev {
+		margin-left:0;
+		font-weight: bold;
+	}
+	ul.pagination li.next {
+		margin-right: 0;
+		font-weight:bold;
+	}
+		ul.pagination li.next a,
+		ul.pagination li.prev a {
+			padding-left: 6px;
+			padding-right: 6px;
+		}
+ul.pagination a {
+	padding:2px 3px 3px 3px;
+	color:#efefef;
+	background-color: #000;
+	text-decoration: none;
+	border: 1px solid #000;
+}
+	ul.pagination a:hover {
+		color:#000;
+		background-color: #efefef;
+	}
+	
+/*************************
+#SHARING BUTTONS
+**************************/
+#social-share ul {
+	list-style-type: none;
+	margin-left: 0;
+}
+
+#social-share li {
+	display: inline;
+}
+
+/** BUTTONS **/
+#social-share .share-buttons li {
+	margin-right:10px;
+	position:relative;
+}
+#social-share .share-buttons .buzz {
+	top:-8px;
+}
+#social-share .share-buttons .facebook {
+	margin-right:0px;
+	top:12px;
+}
+
+/************************************************************************
+*************************************************************************
+************************************************************************/
+/* !LAYOUT */
+/************************************************************************
+*************************************************************************
+************************************************************************/
+
+/***********************************************************************/
+/* !TEMPLATE */
+/***********************************************************************/
+/** PAGE **/
+body {}
+#container {}
+
+/** HEADER **/
+header {}
+#logo {}
+	#logo a {}
+	
+/** MAIN CONTENT AREA **/
+#main {}
+	
+/** FOOTER **/
+footer {}
+
+/** NAVIGATION **/
+nav {}
+nav ul {}
+nav ul li {}
+
+nav a {}
+	nav a:hover {}
+	nav a:active {}
+	
+/** SIDEBARS **/
+aside.sidebar {}
+
+/** SIDEBAR WIDGETS **/
+.widget {}
+	.widget:last-child {
+		margin-bottom: 0;
+	}
+.widget h3 {}
+
+/* 
+ * print styles
+ * inlined to avoid required HTTP connection www.phpied.com/delay-loading-your-print-css/ 
+ */
+@media print {
+  * { background: transparent !important; color: #444 !important; text-shadow: none !important; }
+
+  a, a:visited { color: #444 !important; text-decoration: underline; }
+
+  a:after { content: " (" attr(href) ")"; } 
+
+  abbr:after { content: " (" attr(title) ")"; }
+  
+  .ir a:after { content: ""; }  /* Don't show links for images */
+  
+  pre, blockquote { border: 1px solid #999; page-break-inside: avoid; }
+  
+  thead { display: table-header-group; } /* css-discuss.incutio.com/wiki/Printing_Tables */ 
+  
+  tr, img { page-break-inside: avoid; }
+
+  @page { margin: 0.5cm; }
+
+  p, h2, h3 { orphans: 3; widows: 3; }
+
+  h2, h3{ page-break-after: avoid; }
+}
+
+
+
+/*
+ * Media queries for responsive design
+ */
+
+@media all and (orientation:portrait) { 
+  /* Style adjustments for portrait mode goes here */
+  
+}
+
+@media all and (orientation:landscape) { 
+  /* Style adjustments for landscape mode goes here */
+  
+}
+
+/* Grade-A Mobile Browsers (Opera Mobile, iPhone Safari, Android Chrome)  
+   Consider this: www.cloudfour.com/css-media-query-for-mobile-is-fools-gold/ */
+@media screen and (max-device-width: 480px) {
+  
+  
+  /* Uncomment if you don't want iOS and WinMobile to mobile-optimize the text for you
+     j.mp/textsizeadjust 
+  html { -webkit-text-size-adjust:none; -ms-text-size-adjust:none; } */
+}
+
